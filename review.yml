@@ -1,0 +1,113 @@
+aid: paddle
+name: Paddle
+review:
+  question: Does Paddle expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Paddle's real-time surface is delivered through outbound HTTP webhooks
+    (notifications), not a WebSocket or Server-Sent Events stream. Paddle pushes
+    signed event payloads to seller-configured notification destinations and
+    also exposes a polling Events API. No AsyncAPI document was created because
+    no streaming (WebSocket or SSE) transport is documented; an event-driven
+    webhook model could be captured separately if AE scope later calls for it.
+findings:
+  summary: |
+    Paddle does not publish a documented public WebSocket API. The Paddle
+    Billing API is a REST (HTTPS) API served from https://api.paddle.com using
+    Bearer API key authentication. Real-time delivery is handled by outbound
+    webhook notifications configured via the Notifications and Notification
+    Settings APIs: Paddle sends signed event payloads (e.g. transaction.completed,
+    subscription.updated) to seller HTTPS endpoints. Sellers can also poll the
+    Events API and inspect or replay deliveries through the Notifications API.
+    No realtime, bidirectional WebSocket (ws:// or wss://) endpoint is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.paddle.com
+      documented: true
+    - protocol: Webhook
+      scheme: https
+      note: Outbound, server-to-server HTTP POST notifications to seller-configured destinations, signed for verification. Inbound webhook delivery, not a client-consumable streaming transport.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Paddle's API reference, notifications, or any product page as of the review date.
+  endpointsConfirmedRest:
+    - GET    https://api.paddle.com/products
+    - POST   https://api.paddle.com/products
+    - GET    https://api.paddle.com/products/{product_id}
+    - PATCH  https://api.paddle.com/products/{product_id}
+    - GET    https://api.paddle.com/prices
+    - POST   https://api.paddle.com/prices
+    - GET    https://api.paddle.com/prices/{price_id}
+    - PATCH  https://api.paddle.com/prices/{price_id}
+    - POST   https://api.paddle.com/pricing-preview
+    - GET    https://api.paddle.com/customers
+    - POST   https://api.paddle.com/customers
+    - GET    https://api.paddle.com/customers/{customer_id}
+    - PATCH  https://api.paddle.com/customers/{customer_id}
+    - GET    https://api.paddle.com/customers/{customer_id}/addresses
+    - POST   https://api.paddle.com/customers/{customer_id}/addresses
+    - GET    https://api.paddle.com/customers/{customer_id}/addresses/{address_id}
+    - PATCH  https://api.paddle.com/customers/{customer_id}/addresses/{address_id}
+    - GET    https://api.paddle.com/customers/{customer_id}/businesses
+    - POST   https://api.paddle.com/customers/{customer_id}/businesses
+    - GET    https://api.paddle.com/customers/{customer_id}/businesses/{business_id}
+    - PATCH  https://api.paddle.com/customers/{customer_id}/businesses/{business_id}
+    - GET    https://api.paddle.com/subscriptions
+    - GET    https://api.paddle.com/subscriptions/{subscription_id}
+    - PATCH  https://api.paddle.com/subscriptions/{subscription_id}
+    - POST   https://api.paddle.com/subscriptions/{subscription_id}/activate
+    - POST   https://api.paddle.com/subscriptions/{subscription_id}/cancel
+    - POST   https://api.paddle.com/subscriptions/{subscription_id}/pause
+    - POST   https://api.paddle.com/subscriptions/{subscription_id}/resume
+    - POST   https://api.paddle.com/subscriptions/{subscription_id}/charge
+    - GET    https://api.paddle.com/subscriptions/{subscription_id}/update-payment-method-transaction
+    - GET    https://api.paddle.com/transactions
+    - POST   https://api.paddle.com/transactions
+    - GET    https://api.paddle.com/transactions/{transaction_id}
+    - PATCH  https://api.paddle.com/transactions/{transaction_id}
+    - GET    https://api.paddle.com/transactions/{transaction_id}/invoice
+    - GET    https://api.paddle.com/adjustments
+    - POST   https://api.paddle.com/adjustments
+    - GET    https://api.paddle.com/adjustments/{adjustment_id}/credit-note
+    - GET    https://api.paddle.com/discounts
+    - GET    https://api.paddle.com/reports
+    - POST   https://api.paddle.com/reports
+    - GET    https://api.paddle.com/reports/{report_id}
+    - GET    https://api.paddle.com/reports/{report_id}/csv
+    - GET    https://api.paddle.com/notifications
+    - GET    https://api.paddle.com/notifications/{notification_id}
+    - POST   https://api.paddle.com/notifications/{notification_id}/replay
+    - GET    https://api.paddle.com/notification-settings
+    - POST   https://api.paddle.com/notification-settings
+    - GET    https://api.paddle.com/notification-settings/{notification_setting_id}
+    - PATCH  https://api.paddle.com/notification-settings/{notification_setting_id}
+    - DELETE https://api.paddle.com/notification-settings/{notification_setting_id}
+    - GET    https://api.paddle.com/events
+    - GET    https://api.paddle.com/event-types
+sources:
+  - url: https://developer.paddle.com/api-reference/overview
+    type: APIReference
+    note: All documented endpoints are HTTPS REST under https://api.paddle.com; Bearer API key auth; no WebSocket mentioned.
+  - url: https://developer.paddle.com/webhooks/overview
+    type: Documentation
+    note: Real-time delivery is via outbound webhook notifications to seller endpoints, signed for verification; not WebSocket.
+  - url: https://developer.paddle.com/api-reference/notifications/overview
+    type: APIReference
+    note: Notifications and Notification Settings APIs configure and inspect webhook delivery; Events API supports polling.
+  - url: https://github.com/PaddleHQ/paddle-openapi
+    type: OpenAPI
+    note: Paddle publishes an OpenAPI 3.1 description; no WebSocket/AsyncAPI surface present.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists. Paddle's event delivery is an outbound
+    webhook (notification) model, which is in-scope as REST/webhook rather than
+    a streaming AsyncAPI transport, so no AsyncAPI document was authored. The
+    catalog records the REST API and the webhook notification model only.

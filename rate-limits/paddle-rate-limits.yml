@@ -1,0 +1,63 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Paddle
+providerId: paddle
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Billing
+- Payments
+- Subscriptions
+- Merchant of Record
+- SaaS
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  The Paddle API enforces per-IP-address rate limits. Most endpoints allow up to
+  240 requests per minute. Pricing-preview endpoints (preview transaction and
+  preview prices) allow a higher 1,000 requests per minute. Subscription
+  immediate (one-time) charges are additionally constrained per subscription to
+  20 chargeable updates per hour and 100 per 24-hour period. When a limit is
+  exceeded Paddle returns HTTP 429 with a Retry-After header indicating how long
+  to wait before retrying.
+notes: >-
+  Limits as published on the Paddle API rate-limiting documentation at the time
+  of writing. Verify current values during reconciliation; Paddle may apply
+  different limits per environment or account.
+sources:
+- https://developer.paddle.com/api-reference/about/rate-limiting
+- https://developer.paddle.com
+responseCodes:
+  throttled: 429
+limits:
+- name: Standard Requests Per Minute
+  scope: ip
+  metric: requests
+  limit: 240
+  notes: Up to 240 requests per minute per IP address across most API operations.
+- name: Pricing Preview Requests Per Minute
+  scope: ip
+  metric: requests
+  limit: 1000
+  notes: Up to 1,000 requests per minute per IP address for preview transaction and preview prices endpoints.
+- name: Subscription Immediate Charges (Hourly)
+  scope: subscription
+  metric: requests
+  limit: 20
+  notes: Up to 20 chargeable subscription updates per hour, per subscription.
+- name: Subscription Immediate Charges (Daily)
+  scope: subscription
+  metric: requests
+  limit: 100
+  notes: Up to 100 chargeable subscription updates per 24-hour period, per subscription.
+policies:
+- name: Retry-After
+  description: 429 responses include a Retry-After header indicating how long to wait; further requests are blocked for 60 seconds after exceeding the standard limit.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor the Retry-After header.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

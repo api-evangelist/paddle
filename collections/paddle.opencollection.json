@@ -1,0 +1,806 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paddle API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/products"
+          },
+          "docs": "List products"
+        },
+        {
+          "info": {
+            "name": "Create a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/products",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a product"
+        },
+        {
+          "info": {
+            "name": "Get a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/products/:product_id"
+          },
+          "docs": "Get a product"
+        },
+        {
+          "info": {
+            "name": "Update a product",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/products/:product_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a product"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Prices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/prices"
+          },
+          "docs": "List prices"
+        },
+        {
+          "info": {
+            "name": "Create a price",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/prices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a price"
+        },
+        {
+          "info": {
+            "name": "Get a price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/prices/:price_id"
+          },
+          "docs": "Get a price"
+        },
+        {
+          "info": {
+            "name": "Update a price",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/prices/:price_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a price"
+        },
+        {
+          "info": {
+            "name": "Preview prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/pricing-preview",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Preview prices"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Customers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/customers"
+          },
+          "docs": "List customers"
+        },
+        {
+          "info": {
+            "name": "Create a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a customer"
+        },
+        {
+          "info": {
+            "name": "Get a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/customers/:customer_id"
+          },
+          "docs": "Get a customer"
+        },
+        {
+          "info": {
+            "name": "Update a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/customers/:customer_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a customer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Addresses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List addresses for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/customers/:customer_id/addresses"
+          },
+          "docs": "List addresses for a customer"
+        },
+        {
+          "info": {
+            "name": "Create an address for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/customers/:customer_id/addresses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an address for a customer"
+        },
+        {
+          "info": {
+            "name": "Get an address for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/customers/:customer_id/addresses/:address_id"
+          },
+          "docs": "Get an address for a customer"
+        },
+        {
+          "info": {
+            "name": "Update an address for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/customers/:customer_id/addresses/:address_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an address for a customer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Businesses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List businesses for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/customers/:customer_id/businesses"
+          },
+          "docs": "List businesses for a customer"
+        },
+        {
+          "info": {
+            "name": "Create a business for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/customers/:customer_id/businesses",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a business for a customer"
+        },
+        {
+          "info": {
+            "name": "Get a business for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/customers/:customer_id/businesses/:business_id"
+          },
+          "docs": "Get a business for a customer"
+        },
+        {
+          "info": {
+            "name": "Update a business for a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/customers/:customer_id/businesses/:business_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a business for a customer"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/subscriptions"
+          },
+          "docs": "List subscriptions"
+        },
+        {
+          "info": {
+            "name": "Get a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id"
+          },
+          "docs": "Get a subscription"
+        },
+        {
+          "info": {
+            "name": "Update a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a subscription"
+        },
+        {
+          "info": {
+            "name": "Activate a trialing subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id/activate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Activate a trialing subscription"
+        },
+        {
+          "info": {
+            "name": "Pause a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id/pause",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Pause a subscription"
+        },
+        {
+          "info": {
+            "name": "Resume a paused subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id/resume",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resume a paused subscription"
+        },
+        {
+          "info": {
+            "name": "Cancel a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Cancel a subscription"
+        },
+        {
+          "info": {
+            "name": "Create a one-time charge for a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id/charge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a one-time charge for a subscription"
+        },
+        {
+          "info": {
+            "name": "Get a transaction to update payment method",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/subscriptions/:subscription_id/update-payment-method-transaction"
+          },
+          "docs": "Get a transaction to update payment method"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/transactions"
+          },
+          "docs": "List transactions"
+        },
+        {
+          "info": {
+            "name": "Create a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/transactions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a transaction"
+        },
+        {
+          "info": {
+            "name": "Get a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/transactions/:transaction_id"
+          },
+          "docs": "Get a transaction"
+        },
+        {
+          "info": {
+            "name": "Update a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/transactions/:transaction_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a transaction"
+        },
+        {
+          "info": {
+            "name": "Get a PDF invoice for a transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/transactions/:transaction_id/invoice"
+          },
+          "docs": "Get a PDF invoice for a transaction"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Adjustments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List adjustments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/adjustments"
+          },
+          "docs": "List adjustments"
+        },
+        {
+          "info": {
+            "name": "Create an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/adjustments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an adjustment"
+        },
+        {
+          "info": {
+            "name": "Get a PDF credit note for an adjustment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/adjustments/:adjustment_id/credit-note"
+          },
+          "docs": "Get a PDF credit note for an adjustment"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Discounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List discounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/discounts"
+          },
+          "docs": "List discounts"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/reports"
+          },
+          "docs": "List reports"
+        },
+        {
+          "info": {
+            "name": "Create a report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a report"
+        },
+        {
+          "info": {
+            "name": "Get a report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/reports/:report_id"
+          },
+          "docs": "Get a report"
+        },
+        {
+          "info": {
+            "name": "Get a CSV file for a report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/reports/:report_id/csv"
+          },
+          "docs": "Get a CSV file for a report"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notifications"
+          },
+          "docs": "List notifications"
+        },
+        {
+          "info": {
+            "name": "Get a notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notifications/:notification_id"
+          },
+          "docs": "Get a notification"
+        },
+        {
+          "info": {
+            "name": "Replay a notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/notifications/:notification_id/replay",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replay a notification"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Notification Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notification settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notification-settings"
+          },
+          "docs": "List notification settings"
+        },
+        {
+          "info": {
+            "name": "Create a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/notification-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a notification setting"
+        },
+        {
+          "info": {
+            "name": "Get a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notification-settings/:notification_setting_id"
+          },
+          "docs": "Get a notification setting"
+        },
+        {
+          "info": {
+            "name": "Update a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/notification-settings/:notification_setting_id",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a notification setting"
+        },
+        {
+          "info": {
+            "name": "Delete a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paddle.com/notification-settings/:notification_setting_id"
+          },
+          "docs": "Delete a notification setting"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/events"
+          },
+          "docs": "List events"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Event Types",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List event types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/event-types"
+          },
+          "docs": "List event types"
+        }
+      ]
+    }
+  ]
+}

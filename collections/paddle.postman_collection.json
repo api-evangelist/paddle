@@ -1,0 +1,2175 @@
+{
+  "item": [
+    {
+      "id": "1f4014cd-74a1-4168-b468-89a04244448e",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "995bf0df-eddd-4e21-b54d-e15d31ea02f3",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "c8e024ef-a975-4576-9d33-1b5efb211810",
+          "name": "Create a product",
+          "request": {
+            "name": "Create a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "618226d3-8a7e-40a8-bf35-a388eeb44aa9",
+          "name": "Get a product",
+          "request": {
+            "name": "Get a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "product_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "2bca6dff-46a0-44f0-84cd-0ee62db8eaa9",
+          "name": "Update a product",
+          "request": {
+            "name": "Update a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":product_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "product_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "8786609d-c448-49a8-a9eb-769d9375d2b2",
+      "name": "Prices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "066daae4-6523-4f2f-9673-6724bd7d5e6d",
+          "name": "List prices",
+          "request": {
+            "name": "List prices",
+            "description": {},
+            "url": {
+              "path": [
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "7ecb6e70-6339-4f3b-a3da-579a82466593",
+          "name": "Create a price",
+          "request": {
+            "name": "Create a price",
+            "description": {},
+            "url": {
+              "path": [
+                "prices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "88d1ac1a-2c2d-4fab-bc30-1d60ebef2d8c",
+          "name": "Get a price",
+          "request": {
+            "name": "Get a price",
+            "description": {},
+            "url": {
+              "path": [
+                "prices",
+                ":price_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "price_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "ab5ffd7d-60cd-4781-9618-ac5675205d55",
+          "name": "Update a price",
+          "request": {
+            "name": "Update a price",
+            "description": {},
+            "url": {
+              "path": [
+                "prices",
+                ":price_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "price_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "3456de5f-fcaa-4bd2-ac90-ca3d64e0c058",
+          "name": "Preview prices",
+          "request": {
+            "name": "Preview prices",
+            "description": {},
+            "url": {
+              "path": [
+                "pricing-preview"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "eccca592-88b6-4d88-86bc-d6ef1463c358",
+      "name": "Customers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "13f669db-e4f9-4c26-ba0f-c999358d9d66",
+          "name": "List customers",
+          "request": {
+            "name": "List customers",
+            "description": {},
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "ff0817d3-f86e-4c4b-b594-e1805bfd266d",
+          "name": "Create a customer",
+          "request": {
+            "name": "Create a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "9f2f8736-5502-4b63-aa92-8e97bd4592e8",
+          "name": "Get a customer",
+          "request": {
+            "name": "Get a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "8d4514e0-d0c5-4675-b884-2eba827be32d",
+          "name": "Update a customer",
+          "request": {
+            "name": "Update a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "3c50e6bb-16b6-40ce-8564-6eeee16bd9b1",
+      "name": "Addresses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5afa646d-2d5f-414a-8159-d8b1705ced15",
+          "name": "List addresses for a customer",
+          "request": {
+            "name": "List addresses for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "bf929d0a-ce77-4fc5-85fe-e35811f70168",
+          "name": "Create an address for a customer",
+          "request": {
+            "name": "Create an address for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "4dda2332-2fcc-4018-b3af-424440a7aaa2",
+          "name": "Get an address for a customer",
+          "request": {
+            "name": "Get an address for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "addresses",
+                ":address_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                },
+                {
+                  "key": "address_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "70756b52-813a-40fe-b1ec-012474820227",
+          "name": "Update an address for a customer",
+          "request": {
+            "name": "Update an address for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "addresses",
+                ":address_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                },
+                {
+                  "key": "address_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "53d1a23a-0e97-44b8-aafe-980b781eeead",
+      "name": "Businesses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d306dfa9-608f-426e-980b-e30e12cacf91",
+          "name": "List businesses for a customer",
+          "request": {
+            "name": "List businesses for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "businesses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "392567b0-b427-4338-b192-6b3e2f45d135",
+          "name": "Create a business for a customer",
+          "request": {
+            "name": "Create a business for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "businesses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "f226e1ff-809e-41c4-83d7-a3682377d1b8",
+          "name": "Get a business for a customer",
+          "request": {
+            "name": "Get a business for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "businesses",
+                ":business_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                },
+                {
+                  "key": "business_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "f274a7c4-b470-472a-884c-766e744c2a41",
+          "name": "Update a business for a customer",
+          "request": {
+            "name": "Update a business for a customer",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                ":customer_id",
+                "businesses",
+                ":business_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id"
+                },
+                {
+                  "key": "business_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "f36f2b83-5f5e-46da-a064-2d9a3a268a62",
+      "name": "Subscriptions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "75f5b8e8-f72f-44fe-acf9-9498f9671bbf",
+          "name": "List subscriptions",
+          "request": {
+            "name": "List subscriptions",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "ba758af4-60cb-4f7c-ad5d-0f449ea2ef08",
+          "name": "Get a subscription",
+          "request": {
+            "name": "Get a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "73c9ae84-69fb-42d0-9207-302b28b2ca40",
+          "name": "Update a subscription",
+          "request": {
+            "name": "Update a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "f858f837-1edd-4d59-9cb6-3f68c78af969",
+          "name": "Activate a trialing subscription",
+          "request": {
+            "name": "Activate a trialing subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id",
+                "activate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "bb97a3e2-6347-46a2-a092-9267bad377d9",
+          "name": "Pause a subscription",
+          "request": {
+            "name": "Pause a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id",
+                "pause"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "23514708-68da-4ea3-86bd-6b37c49e19b9",
+          "name": "Resume a paused subscription",
+          "request": {
+            "name": "Resume a paused subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "fc1c950c-2a3f-4ab2-99ea-8b29cf133770",
+          "name": "Cancel a subscription",
+          "request": {
+            "name": "Cancel a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "48facb12-34a4-4cfb-b977-dba4cd4a0e96",
+          "name": "Create a one-time charge for a subscription",
+          "request": {
+            "name": "Create a one-time charge for a subscription",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id",
+                "charge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "beb89165-c49f-4f71-abd3-2723b53e17ac",
+          "name": "Get a transaction to update payment method",
+          "request": {
+            "name": "Get a transaction to update payment method",
+            "description": {},
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscription_id",
+                "update-payment-method-transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "subscription_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "1c4e1d43-be12-4791-8186-d98419319ef6",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46714047-a569-4d04-8cf7-15399a47958c",
+          "name": "List transactions",
+          "request": {
+            "name": "List transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "a6877dd4-22c0-4edc-8cd3-d6db79ae6423",
+          "name": "Create a transaction",
+          "request": {
+            "name": "Create a transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "59c7fef9-4808-40cd-b441-64836ecbfc84",
+          "name": "Get a transaction",
+          "request": {
+            "name": "Get a transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "transaction_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "86b1109c-ff3e-4be0-8dfc-fe6b08aa2852",
+          "name": "Update a transaction",
+          "request": {
+            "name": "Update a transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "transaction_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "21db52a9-0853-4347-907d-da28dd0013e5",
+          "name": "Get a PDF invoice for a transaction",
+          "request": {
+            "name": "Get a PDF invoice for a transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "transactions",
+                ":transaction_id",
+                "invoice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "transaction_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "e6dcabe5-565f-4ac3-829d-14389850f2a2",
+      "name": "Adjustments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe4ee2ae-43b0-4d52-8fa6-ce4ebcee37ff",
+          "name": "List adjustments",
+          "request": {
+            "name": "List adjustments",
+            "description": {},
+            "url": {
+              "path": [
+                "adjustments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "3a07975f-2070-4621-ab6e-ff04d2817cf9",
+          "name": "Create an adjustment",
+          "request": {
+            "name": "Create an adjustment",
+            "description": {},
+            "url": {
+              "path": [
+                "adjustments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "e793416f-125e-4cdc-a2e7-9294b8feb8a4",
+          "name": "Get a PDF credit note for an adjustment",
+          "request": {
+            "name": "Get a PDF credit note for an adjustment",
+            "description": {},
+            "url": {
+              "path": [
+                "adjustments",
+                ":adjustment_id",
+                "credit-note"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "adjustment_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "dd45d2a1-5655-4ebb-a045-4bf63cb600fd",
+      "name": "Discounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cf2b3c3a-872f-47c1-a1ee-93736c94a44c",
+          "name": "List discounts",
+          "request": {
+            "name": "List discounts",
+            "description": {},
+            "url": {
+              "path": [
+                "discounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "c0339e8a-ebf2-4b24-a10f-8de8c56c1b2a",
+      "name": "Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fecdaec8-4b86-4ebd-889c-2cc069e28381",
+          "name": "List reports",
+          "request": {
+            "name": "List reports",
+            "description": {},
+            "url": {
+              "path": [
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "013f9879-67a9-42e0-adab-5786163f49b7",
+          "name": "Create a report",
+          "request": {
+            "name": "Create a report",
+            "description": {},
+            "url": {
+              "path": [
+                "reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "687b86ee-94ce-4e98-be2d-93457531311d",
+          "name": "Get a report",
+          "request": {
+            "name": "Get a report",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                ":report_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "report_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "4f975a5d-3442-4216-892a-b05fef91cd77",
+          "name": "Get a CSV file for a report",
+          "request": {
+            "name": "Get a CSV file for a report",
+            "description": {},
+            "url": {
+              "path": [
+                "reports",
+                ":report_id",
+                "csv"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "report_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "9661ed04-6e4d-46a8-88c5-194514a2f33c",
+      "name": "Notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b50ac252-ab34-4f85-a7db-a3ec70e8d744",
+          "name": "List notifications",
+          "request": {
+            "name": "List notifications",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "a458f0cc-9b4e-443f-b102-34c0f598535b",
+          "name": "Get a notification",
+          "request": {
+            "name": "Get a notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":notification_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "notification_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "508c7415-61d8-4bef-bd46-b91f5eb128f0",
+          "name": "Replay a notification",
+          "request": {
+            "name": "Replay a notification",
+            "description": {},
+            "url": {
+              "path": [
+                "notifications",
+                ":notification_id",
+                "replay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "notification_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "bba1e61d-0d46-4c52-907d-cb4cbb23ef83",
+      "name": "Notification Settings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "07a03e1c-6e16-459e-afd8-ea5690073f1e",
+          "name": "List notification settings",
+          "request": {
+            "name": "List notification settings",
+            "description": {},
+            "url": {
+              "path": [
+                "notification-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "7dfa49f6-aed3-4245-9690-638c586687e1",
+          "name": "Create a notification setting",
+          "request": {
+            "name": "Create a notification setting",
+            "description": {},
+            "url": {
+              "path": [
+                "notification-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "b0a130b5-a524-40c5-a7d5-b7b047ec7f25",
+          "name": "Get a notification setting",
+          "request": {
+            "name": "Get a notification setting",
+            "description": {},
+            "url": {
+              "path": [
+                "notification-settings",
+                ":notification_setting_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "notification_setting_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        },
+        {
+          "id": "a1e9374a-aa18-4050-8fad-a104a082661b",
+          "name": "Update a notification setting",
+          "request": {
+            "name": "Update a notification setting",
+            "description": {},
+            "url": {
+              "path": [
+                "notification-settings",
+                ":notification_setting_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "notification_setting_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "3681e915-c938-400c-b460-4aefcb7ddbbd",
+          "name": "Delete a notification setting",
+          "request": {
+            "name": "Delete a notification setting",
+            "description": {},
+            "url": {
+              "path": [
+                "notification-settings",
+                ":notification_setting_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "notification_setting_id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "4276af6f-4c19-4cda-b37d-4e5d8276bfeb",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce9554a4-ba02-41ef-80fa-0577ced4d534",
+          "name": "List events",
+          "request": {
+            "name": "List events",
+            "description": {},
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "9988d206-0e7d-4230-9919-625d3f048d10",
+      "name": "Event Types",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85c5e506-5332-4e08-857e-39074b08b8d4",
+          "name": "List event types",
+          "request": {
+            "name": "List event types",
+            "description": {},
+            "url": {
+              "path": [
+                "event-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.paddle.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b91d990f-d60d-4b91-a94c-5bc347483b78",
+    "name": "Paddle API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Paddle Billing API for subscription and recurring revenue management. Authenticate with a Bearer API key.\n\nContact Support:\n Name: Paddle Support\n URL: https://www.paddle.com/support",
+      "type": "text/plain"
+    }
+  }
+}

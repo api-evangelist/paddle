@@ -1,0 +1,85 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Paddle
+providerId: paddle
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Billing
+- Payments
+- Subscriptions
+- Merchant of Record
+- SaaS
+- Plans
+description: >-
+  Paddle is a merchant of record, so its pricing is charged as a percentage
+  plus a fixed fee on each successfully processed transaction rather than as a
+  per-API-call or per-seat platform fee. The published Standard rate is
+  5% + 50 cents per transaction, which bundles payment processing, global sales
+  tax and compliance, fraud protection, churn recovery, localized checkout, and
+  support. Larger and rapidly scaling businesses can negotiate Custom pricing.
+  The Paddle Billing API itself is included; there is no separate charge to call
+  the API.
+notes: >-
+  Rate as published on the Paddle pricing page at the time of writing. Products
+  priced under $10, invoiced deals, and high-volume accounts may be quoted
+  different (custom) rates. Verify current fees on the Paddle pricing page
+  during reconciliation.
+sources:
+- https://www.paddle.com/pricing
+- https://developer.paddle.com
+plans:
+- id: paddle-standard
+  name: Standard
+  type: usage
+  description: >-
+    All-inclusive merchant-of-record rate billed per successful transaction,
+    with no monthly, migration, or hidden fees.
+  entries:
+  - label: Transaction Fee
+    name: transaction_fee
+    type: usage
+    metric: transactions
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 5% + $0.50 per transaction
+    userMultiplied: false
+  elements:
+  - name: Payment Processing
+  - name: Global Sales Tax and Compliance
+  - name: Subscription Billing
+  - name: Fraud Protection
+  - name: Churn Recovery
+  - name: Localized Checkout
+  - name: Customer Support
+  - name: Paddle Billing API
+- id: paddle-custom
+  name: Custom
+  type: enterprise
+  description: >-
+    Tailored pricing for rapidly scaling and established large-scale
+    businesses, with rates based on business model and products, optional
+    premium services, and dedicated success management. Also covers products
+    priced under $10 and invoiced deals. Contact Paddle sales.
+  entries:
+  - label: Custom Agreement
+    name: custom
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Negotiated Transaction Rates
+  - name: Premium Services
+  - name: Dedicated Success Management
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
