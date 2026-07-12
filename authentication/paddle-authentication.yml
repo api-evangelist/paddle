@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/paddle-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Authenticate with your Paddle API key passed in the Authorization header with
+    the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'
+  sources:
+  - openapi/paddle-openapi.yml

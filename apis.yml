@@ -170,6 +170,12 @@ apis:
     inspect delivered notifications, replay failed deliveries, and browse the
     events and event-type catalog that power Paddle's webhook system.
 common:
+- type: VulnerabilityDisclosure
+  url: security/paddle-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/paddle-domain-security.yml
+- type: Authentication
+  url: authentication/paddle-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/PaddleHQ
 - type: LinkedIn
@@ -184,6 +190,8 @@ common:
   url: rate-limits/paddle-rate-limits.yml
 - type: FinOps
   url: finops/paddle-finops.yml
+- url: https://www.paddle.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
