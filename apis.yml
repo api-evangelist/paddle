@@ -170,6 +170,8 @@ apis:
     inspect delivered notifications, replay failed deliveries, and browse the
     events and event-type catalog that power Paddle's webhook system.
 common:
+- type: AgenticAccess
+  url: agentic-access/paddle-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/paddle-vulnerability-disclosure.yml
 - type: DomainSecurity
