@@ -9,6 +9,6 @@ schemes:
   type: http
   scheme: bearer
   description: 'Authenticate with your Paddle API key passed in the Authorization header with
-    the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'
+    the Bearer prefix, e.g. `Authorization: Bearer [example key]`.'
   sources:
   - openapi/paddle-openapi.yml
