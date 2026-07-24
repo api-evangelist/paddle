@@ -1,0 +1,211 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Products API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Products
+paths:
+  /products:
+    get:
+      operationId: list-products
+      tags:
+      - Products
+      summary: List products
+      parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/perPage'
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - active
+          - archived
+      responses:
+        '200':
+          description: Returns a paginated list of products.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCollection'
+    post:
+      operationId: create-product
+      tags:
+      - Products
+      summary: Create a product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '201':
+          description: Returns the created product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductEntity'
+  /products/{product_id}:
+    parameters:
+    - $ref: '#/components/parameters/productId'
+    get:
+      operationId: get-product
+      tags:
+      - Products
+      summary: Get a product
+      responses:
+        '200':
+          description: Returns a product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductEntity'
+    patch:
+      operationId: update-product
+      tags:
+      - Products
+      summary: Update a product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '200':
+          description: Returns the updated product.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductEntity'
+components:
+  parameters:
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    productId:
+      name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+  schemas:
+    ProductEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Product'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    ProductCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+    ProductCreate:
+      type: object
+      required:
+      - name
+      - tax_category
+      properties:
+        name:
+          type: string
+        tax_category:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+        custom_data:
+          type: object
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          example: pro_01gsz4t5hdjse780zja8vvr7jg
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        type:
+          type: string
+          enum:
+          - standard
+          - custom
+        tax_category:
+          type: string
+          enum:
+          - digital-goods
+          - ebooks
+          - implementation-services
+          - professional-services
+          - saas
+          - software-programming-services
+          - standard
+          - training-services
+          - website-hosting
+        image_url:
+          type: string
+          nullable: true
+        custom_data:
+          type: object
+          nullable: true
+        status:
+          type: string
+          enum:
+          - active
+          - archived
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

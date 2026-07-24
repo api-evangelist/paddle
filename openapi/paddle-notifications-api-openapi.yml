@@ -1,0 +1,75 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Notifications API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Notifications
+paths:
+  /notifications:
+    get:
+      operationId: list-notifications
+      tags:
+      - Notifications
+      summary: List notifications
+      responses:
+        '200':
+          description: Returns a paginated list of notifications.
+          content:
+            application/json:
+              schema:
+                type: object
+  /notifications/{notification_id}:
+    parameters:
+    - $ref: '#/components/parameters/notificationId'
+    get:
+      operationId: get-notification
+      tags:
+      - Notifications
+      summary: Get a notification
+      responses:
+        '200':
+          description: Returns a notification.
+          content:
+            application/json:
+              schema:
+                type: object
+  /notifications/{notification_id}/replay:
+    parameters:
+    - $ref: '#/components/parameters/notificationId'
+    post:
+      operationId: replay-notification
+      tags:
+      - Notifications
+      summary: Replay a notification
+      responses:
+        '200':
+          description: Returns the notification that was queued for replay.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  parameters:
+    notificationId:
+      name: notification_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

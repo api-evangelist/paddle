@@ -1,0 +1,187 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Customers API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Customers
+paths:
+  /customers:
+    get:
+      operationId: list-customers
+      tags:
+      - Customers
+      summary: List customers
+      parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/perPage'
+      responses:
+        '200':
+          description: Returns a paginated list of customers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerCollection'
+    post:
+      operationId: create-customer
+      tags:
+      - Customers
+      summary: Create a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreate'
+      responses:
+        '201':
+          description: Returns the created customer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerEntity'
+  /customers/{customer_id}:
+    parameters:
+    - $ref: '#/components/parameters/customerId'
+    get:
+      operationId: get-customer
+      tags:
+      - Customers
+      summary: Get a customer
+      responses:
+        '200':
+          description: Returns a customer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerEntity'
+    patch:
+      operationId: update-customer
+      tags:
+      - Customers
+      summary: Update a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomerCreate'
+      responses:
+        '200':
+          description: Returns the updated customer.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerEntity'
+components:
+  schemas:
+    CustomerEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    CustomerCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          example: ctm_01gsz4t5hdjse780zja8vvr7jg
+        name:
+          type: string
+          nullable: true
+        email:
+          type: string
+          format: email
+        marketing_consent:
+          type: boolean
+        locale:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - archived
+        custom_data:
+          type: object
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+    CustomerCreate:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        locale:
+          type: string
+        custom_data:
+          type: object
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+  parameters:
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    customerId:
+      name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

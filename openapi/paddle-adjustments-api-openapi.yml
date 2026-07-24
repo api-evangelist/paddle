@@ -1,0 +1,132 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Adjustments API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Adjustments
+paths:
+  /adjustments:
+    get:
+      operationId: list-adjustments
+      tags:
+      - Adjustments
+      summary: List adjustments
+      parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/perPage'
+      responses:
+        '200':
+          description: Returns a paginated list of adjustments.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: create-adjustment
+      tags:
+      - Adjustments
+      summary: Create an adjustment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdjustmentCreate'
+      responses:
+        '201':
+          description: Returns the created adjustment.
+          content:
+            application/json:
+              schema:
+                type: object
+  /adjustments/{adjustment_id}/credit-note:
+    parameters:
+    - $ref: '#/components/parameters/adjustmentId'
+    get:
+      operationId: get-adjustment-credit-note
+      tags:
+      - Adjustments
+      summary: Get a PDF credit note for an adjustment
+      responses:
+        '200':
+          description: Returns a URL to the PDF credit note for the adjustment.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+components:
+  parameters:
+    adjustmentId:
+      name: adjustment_id
+      in: path
+      required: true
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+  schemas:
+    AdjustmentCreate:
+      type: object
+      required:
+      - action
+      - transaction_id
+      - reason
+      properties:
+        action:
+          type: string
+          enum:
+          - refund
+          - credit
+          - chargeback
+          - chargeback_reverse
+          - chargeback_warning
+          - credit_reverse
+        transaction_id:
+          type: string
+        reason:
+          type: string
+        type:
+          type: string
+          enum:
+          - full
+          - partial
+        items:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

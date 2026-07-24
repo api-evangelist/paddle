@@ -1,0 +1,56 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Events API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Events
+paths:
+  /events:
+    get:
+      operationId: list-events
+      tags:
+      - Events
+      summary: List events
+      parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/perPage'
+      responses:
+        '200':
+          description: Returns a paginated list of events.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  parameters:
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

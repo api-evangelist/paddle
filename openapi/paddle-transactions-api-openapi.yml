@@ -1,0 +1,220 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Transactions API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Transactions
+paths:
+  /transactions:
+    get:
+      operationId: list-transactions
+      tags:
+      - Transactions
+      summary: List transactions
+      parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/perPage'
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - draft
+          - ready
+          - billed
+          - paid
+          - completed
+          - canceled
+          - past_due
+      responses:
+        '200':
+          description: Returns a paginated list of transactions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionCollection'
+    post:
+      operationId: create-transaction
+      tags:
+      - Transactions
+      summary: Create a transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Returns the created transaction.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionEntity'
+  /transactions/{transaction_id}:
+    parameters:
+    - $ref: '#/components/parameters/transactionId'
+    get:
+      operationId: get-transaction
+      tags:
+      - Transactions
+      summary: Get a transaction
+      responses:
+        '200':
+          description: Returns a transaction.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionEntity'
+    patch:
+      operationId: update-transaction
+      tags:
+      - Transactions
+      summary: Update a transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Returns the updated transaction.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionEntity'
+  /transactions/{transaction_id}/invoice:
+    parameters:
+    - $ref: '#/components/parameters/transactionId'
+    get:
+      operationId: get-transaction-invoice
+      tags:
+      - Transactions
+      summary: Get a PDF invoice for a transaction
+      responses:
+        '200':
+          description: Returns a URL to the PDF invoice for the transaction.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+components:
+  parameters:
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    transactionId:
+      name: transaction_id
+      in: path
+      required: true
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+  schemas:
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          example: txn_01gsz4t5hdjse780zja8vvr7jg
+        status:
+          type: string
+          enum:
+          - draft
+          - ready
+          - billed
+          - paid
+          - completed
+          - canceled
+          - past_due
+        customer_id:
+          type: string
+          nullable: true
+        subscription_id:
+          type: string
+          nullable: true
+        currency_code:
+          type: string
+        origin:
+          type: string
+        collection_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+        items:
+          type: array
+          items:
+            type: object
+        details:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+    TransactionCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    TransactionEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Transaction'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

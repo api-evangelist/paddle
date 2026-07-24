@@ -1,0 +1,130 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Notification Settings API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Notification Settings
+paths:
+  /notification-settings:
+    get:
+      operationId: list-notification-settings
+      tags:
+      - Notification Settings
+      summary: List notification settings (destinations)
+      responses:
+        '200':
+          description: Returns a list of notification settings.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: create-notification-setting
+      tags:
+      - Notification Settings
+      summary: Create a notification setting (destination)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationSetting'
+      responses:
+        '201':
+          description: Returns the created notification setting.
+          content:
+            application/json:
+              schema:
+                type: object
+  /notification-settings/{notification_setting_id}:
+    parameters:
+    - $ref: '#/components/parameters/notificationSettingId'
+    get:
+      operationId: get-notification-setting
+      tags:
+      - Notification Settings
+      summary: Get a notification setting
+      responses:
+        '200':
+          description: Returns a notification setting.
+          content:
+            application/json:
+              schema:
+                type: object
+    patch:
+      operationId: update-notification-setting
+      tags:
+      - Notification Settings
+      summary: Update a notification setting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationSetting'
+      responses:
+        '200':
+          description: Returns the updated notification setting.
+          content:
+            application/json:
+              schema:
+                type: object
+    delete:
+      operationId: delete-notification-setting
+      tags:
+      - Notification Settings
+      summary: Delete a notification setting
+      responses:
+        '204':
+          description: The notification setting was deleted.
+components:
+  parameters:
+    notificationSettingId:
+      name: notification_setting_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    NotificationSetting:
+      type: object
+      required:
+      - description
+      - destination
+      - type
+      properties:
+        description:
+          type: string
+        destination:
+          type: string
+          description: HTTPS URL (webhook) or email address that receives notifications.
+        type:
+          type: string
+          enum:
+          - email
+          - url
+        subscribed_events:
+          type: array
+          items:
+            type: string
+        api_version:
+          type: integer
+        include_sensitive_fields:
+          type: boolean
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

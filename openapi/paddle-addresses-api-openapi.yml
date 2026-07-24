@@ -1,0 +1,125 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Addresses
+paths:
+  /customers/{customer_id}/addresses:
+    parameters:
+    - $ref: '#/components/parameters/customerId'
+    get:
+      operationId: list-addresses
+      tags:
+      - Addresses
+      summary: List addresses for a customer
+      responses:
+        '200':
+          description: Returns a paginated list of addresses.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: create-address
+      tags:
+      - Addresses
+      summary: Create an address for a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '201':
+          description: Returns the created address.
+          content:
+            application/json:
+              schema:
+                type: object
+  /customers/{customer_id}/addresses/{address_id}:
+    parameters:
+    - $ref: '#/components/parameters/customerId'
+    - $ref: '#/components/parameters/addressId'
+    get:
+      operationId: get-address
+      tags:
+      - Addresses
+      summary: Get an address for a customer
+      responses:
+        '200':
+          description: Returns an address.
+          content:
+            application/json:
+              schema:
+                type: object
+    patch:
+      operationId: update-address
+      tags:
+      - Addresses
+      summary: Update an address for a customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Address'
+      responses:
+        '200':
+          description: Returns the updated address.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  parameters:
+    customerId:
+      name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
+    addressId:
+      name: address_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Address:
+      type: object
+      required:
+      - country_code
+      properties:
+        country_code:
+          type: string
+          example: US
+        first_line:
+          type: string
+        second_line:
+          type: string
+          nullable: true
+        city:
+          type: string
+        postal_code:
+          type: string
+        region:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

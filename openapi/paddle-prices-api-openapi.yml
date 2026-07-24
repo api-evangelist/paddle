@@ -1,0 +1,246 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Prices API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Prices
+paths:
+  /prices:
+    get:
+      operationId: list-prices
+      tags:
+      - Prices
+      summary: List prices
+      parameters:
+      - $ref: '#/components/parameters/after'
+      - $ref: '#/components/parameters/perPage'
+      responses:
+        '200':
+          description: Returns a paginated list of prices.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceCollection'
+    post:
+      operationId: create-price
+      tags:
+      - Prices
+      summary: Create a price
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PriceCreate'
+      responses:
+        '201':
+          description: Returns the created price.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceEntity'
+  /prices/{price_id}:
+    parameters:
+    - $ref: '#/components/parameters/priceId'
+    get:
+      operationId: get-price
+      tags:
+      - Prices
+      summary: Get a price
+      responses:
+        '200':
+          description: Returns a price.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceEntity'
+    patch:
+      operationId: update-price
+      tags:
+      - Prices
+      summary: Update a price
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PriceCreate'
+      responses:
+        '200':
+          description: Returns the updated price.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceEntity'
+  /pricing-preview:
+    post:
+      operationId: preview-prices
+      tags:
+      - Prices
+      summary: Preview prices
+      description: Previews calculated totals for a set of prices for a given location, including localized currency and tax, without creating a transaction.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      price_id:
+                        type: string
+                      quantity:
+                        type: integer
+                customer_id:
+                  type: string
+                address:
+                  type: object
+                currency_code:
+                  type: string
+      responses:
+        '200':
+          description: Returns a pricing preview with localized totals.
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+    PriceEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    PriceCreate:
+      type: object
+      required:
+      - product_id
+      - description
+      - unit_price
+      properties:
+        product_id:
+          type: string
+        description:
+          type: string
+        unit_price:
+          $ref: '#/components/schemas/Money'
+        billing_cycle:
+          type: object
+        trial_period:
+          type: object
+    Price:
+      type: object
+      properties:
+        id:
+          type: string
+          example: pri_01gsz8x8sawmvhz1pv30nge1ke
+        product_id:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - standard
+          - custom
+        billing_cycle:
+          type: object
+          nullable: true
+          properties:
+            interval:
+              type: string
+              enum:
+              - day
+              - week
+              - month
+              - year
+            frequency:
+              type: integer
+        trial_period:
+          type: object
+          nullable: true
+        unit_price:
+          $ref: '#/components/schemas/Money'
+        status:
+          type: string
+          enum:
+          - active
+          - archived
+    Money:
+      type: object
+      properties:
+        amount:
+          type: string
+          description: Amount in the lowest denomination of the currency (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
+    PriceCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
+  parameters:
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
+    priceId:
+      name: price_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'

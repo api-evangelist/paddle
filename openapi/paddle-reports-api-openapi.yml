@@ -1,0 +1,100 @@
+openapi: 3.0.1
+info:
+  title: Paddle Addresses Reports API
+  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  termsOfService: https://www.paddle.com/legal/terms
+  contact:
+    name: Paddle Support
+    url: https://www.paddle.com/support
+  version: '1.0'
+servers:
+- url: https://api.paddle.com
+  description: Production
+- url: https://sandbox-api.paddle.com
+  description: Sandbox
+security:
+- bearerAuth: []
+tags:
+- name: Reports
+paths:
+  /reports:
+    get:
+      operationId: list-reports
+      tags:
+      - Reports
+      summary: List reports
+      responses:
+        '200':
+          description: Returns a paginated list of reports.
+          content:
+            application/json:
+              schema:
+                type: object
+    post:
+      operationId: create-report
+      tags:
+      - Reports
+      summary: Create a report
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Returns the created report.
+          content:
+            application/json:
+              schema:
+                type: object
+  /reports/{report_id}:
+    parameters:
+    - $ref: '#/components/parameters/reportId'
+    get:
+      operationId: get-report
+      tags:
+      - Reports
+      summary: Get a report
+      responses:
+        '200':
+          description: Returns a report.
+          content:
+            application/json:
+              schema:
+                type: object
+  /reports/{report_id}/csv:
+    parameters:
+    - $ref: '#/components/parameters/reportId'
+    get:
+      operationId: get-report-csv
+      tags:
+      - Reports
+      summary: Get a CSV file for a report
+      responses:
+        '200':
+          description: Returns a URL to download the report as CSV.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        format: uri
+components:
+  parameters:
+    reportId:
+      name: report_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Authenticate with your Paddle API key passed in the Authorization header with the Bearer prefix, e.g. `Authorization: Bearer pdl_live_apikey_...`.'
