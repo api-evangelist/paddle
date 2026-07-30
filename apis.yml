@@ -7,7 +7,20 @@ description: Paddle is a merchant-of-record billing platform for SaaS and digita
   prices, customers, subscriptions, transactions, invoices, adjustments, and
   discounts - while Paddle handles global sales tax, payment processing, fraud,
   and compliance on the seller's behalf.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paddle.png
 tags:
 - Billing
 - Payments
@@ -18,157 +31,594 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: paddle:paddle-products-api
-  name: Paddle Products API
-  tags:
-  - Products
-  - Catalog
-  - Prices
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: paddle:paddle-addresses-api
+  name: Paddle Addresses API
+  description: The Addresses API from Paddle — 2 operation(s) for addresses.
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
-  properties:
-  - url: https://developer.paddle.com/api-reference/products/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/products/list-products
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Create, read, and update the products in your Paddle catalog,
-    including names, descriptions, tax categories, custom data, and product images.
-- aid: paddle:paddle-prices-api
-  name: Paddle Prices API
   tags:
-  - Prices
-  - Pricing
-  - Catalog
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/prices/overview
-  baseURL: https://api.paddle.com
-  properties:
-  - url: https://developer.paddle.com/api-reference/prices/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/prices/list-prices
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Manage one-time and recurring prices for products, including billing
-    cycles, trial periods, unit and tiered pricing, country overrides, and a
-    pricing-preview endpoint that calculates localized prices and taxes.
-- aid: paddle:paddle-customers-api
-  name: Paddle Customers API
-  tags:
-  - Customers
   - Addresses
-  - Businesses
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/customers/overview
-  baseURL: https://api.paddle.com
   properties:
-  - url: https://developer.paddle.com/api-reference/customers/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/customers/list-customers
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Manage customers and their related addresses and businesses, credit
-    balances, customer portal sessions, and authentication tokens used by
-    Paddle.js and the customer portal.
-- aid: paddle:paddle-subscriptions-api
-  name: Paddle Subscriptions API
-  tags:
-  - Subscriptions
-  - Recurring Billing
-  - Lifecycle
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/subscriptions/overview
-  baseURL: https://api.paddle.com
-  properties:
-  - url: https://developer.paddle.com/api-reference/subscriptions/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Manage the full subscription lifecycle - list, get, and update
-    subscriptions, activate trials, pause, resume, cancel, apply one-time
-    charges, preview updates and charges, and retrieve payment-method-update
-    transactions.
-- aid: paddle:paddle-transactions-api
-  name: Paddle Transactions API
-  tags:
-  - Transactions
-  - Checkout
-  - Invoices
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/transactions/overview
-  baseURL: https://api.paddle.com
-  properties:
-  - url: https://developer.paddle.com/api-reference/transactions/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/transactions/list-transactions
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Create, read, update, and preview transactions - the core billing
-    object that ties customers, prices, and payments together - and retrieve a
-    PDF invoice or revise customer details for billed transactions.
+  - type: OpenAPI
+    url: openapi/paddle-addresses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
 - aid: paddle:paddle-adjustments-api
   name: Paddle Adjustments API
+  description: The Adjustments API from Paddle — 2 operation(s) for adjustments.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
   tags:
   - Adjustments
-  - Refunds
-  - Credit Notes
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/adjustments/overview
-  baseURL: https://api.paddle.com
   properties:
-  - url: https://developer.paddle.com/api-reference/adjustments/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Issue and list adjustments - refunds, credits, and chargebacks
-    against transactions - and download a PDF credit note for an adjustment.
+  - type: OpenAPI
+    url: openapi/paddle-adjustments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-businesses-api
+  name: Paddle Businesses API
+  description: The Businesses API from Paddle — 2 operation(s) for businesses.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Businesses
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-businesses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-customers-api
+  name: Paddle Customers API
+  description: The Customers API from Paddle — 2 operation(s) for customers.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-customers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
 - aid: paddle:paddle-discounts-api
   name: Paddle Discounts API
+  description: The Discounts API from Paddle — 1 operation(s) for discounts.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
   tags:
   - Discounts
-  - Coupons
-  - Promotions
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/discounts/overview
-  baseURL: https://api.paddle.com
   properties:
-  - url: https://developer.paddle.com/api-reference/discounts/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/discounts/list-discounts
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Create, read, and update discounts - percentage, flat, and flat-per-seat
-    coupon codes with usage limits, expiry, and product or price restrictions -
-    applied to checkouts, transactions, and subscriptions.
+  - type: OpenAPI
+    url: openapi/paddle-discounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-event-types-api
+  name: Paddle Event Types API
+  description: The Event Types API from Paddle — 1 operation(s) for event types.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Event Types
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-event-types-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-events-api
+  name: Paddle Events API
+  description: The Events API from Paddle — 1 operation(s) for events.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-events-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-notification-settings-api
+  name: Paddle Notification Settings API
+  description: The Notification Settings API from Paddle — 2 operation(s) for notification settings.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Notification Settings
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-notification-settings-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
 - aid: paddle:paddle-notifications-api
   name: Paddle Notifications API
+  description: The Notifications API from Paddle — 3 operation(s) for notifications.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
   tags:
   - Notifications
-  - Webhooks
-  - Events
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.paddle.com/api-reference/notifications/overview
-  baseURL: https://api.paddle.com
   properties:
-  - url: https://developer.paddle.com/api-reference/notifications/overview
-    type: Documentation
-  - url: https://developer.paddle.com/api-reference/notification-settings/overview
-    type: APIReference
-  - url: openapi/paddle-openapi.yml
-    type: OpenAPI
-  description: Configure notification destinations (webhook and email), list and
-    inspect delivered notifications, replay failed deliveries, and browse the
-    events and event-type catalog that power Paddle's webhook system.
+  - type: OpenAPI
+    url: openapi/paddle-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-prices-api
+  name: Paddle Prices API
+  description: The Prices API from Paddle — 3 operation(s) for prices.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Prices
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-prices-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-products-api
+  name: Paddle Products API
+  description: The Products API from Paddle — 2 operation(s) for products.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-reports-api
+  name: Paddle Reports API
+  description: The Reports API from Paddle — 3 operation(s) for reports.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-reports-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-subscriptions-api
+  name: Paddle Subscriptions API
+  description: The Subscriptions API from Paddle — 8 operation(s) for subscriptions.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-subscriptions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
+- aid: paddle:paddle-transactions-api
+  name: Paddle Transactions API
+  description: The Transactions API from Paddle — 3 operation(s) for transactions.
+  humanURL: https://developer.paddle.com/api-reference/products/overview
+  baseURL: https://api.paddle.com
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/paddle-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/products/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/products/list-products
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/prices/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/prices/list-prices
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/customers/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/customers/list-customers
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/subscriptions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/subscriptions/list-subscriptions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/transactions/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/transactions/list-transactions
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/adjustments/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/adjustments/list-adjustments
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/discounts/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/discounts/list-discounts
+  - type: Documentation
+    url: https://developer.paddle.com/api-reference/notifications/overview
+  - type: APIReference
+    url: https://developer.paddle.com/api-reference/notification-settings/overview
 common:
 - type: AgenticAccess
   url: agentic-access/paddle-agentic-access.yml
