@@ -1,0 +1,40 @@
+{
+  "provider": "paddle",
+  "sources": [
+    "paddle-addresses-api-openapi.yml",
+    "paddle-adjustments-api-openapi.yml",
+    "paddle-businesses-api-openapi.yml",
+    "paddle-customers-api-openapi.yml",
+    "paddle-discounts-api-openapi.yml",
+    "paddle-event-types-api-openapi.yml",
+    "paddle-events-api-openapi.yml",
+    "paddle-notification-settings-api-openapi.yml",
+    "paddle-notifications-api-openapi.yml",
+    "paddle-prices-api-openapi.yml",
+    "paddle-products-api-openapi.yml",
+    "paddle-reports-api-openapi.yml",
+    "paddle-subscriptions-api-openapi.yml",
+    "paddle-transactions-api-openapi.yml"
+  ],
+  "outputs": [
+    "paddle-addresses-api-openapi.yml",
+    "paddle-adjustments-api-openapi.yml",
+    "paddle-businesses-api-openapi.yml",
+    "paddle-customers-api-openapi.yml",
+    "paddle-discounts-api-openapi.yml",
+    "paddle-event-types-api-openapi.yml",
+    "paddle-events-api-openapi.yml",
+    "paddle-notification-settings-api-openapi.yml",
+    "paddle-notifications-api-openapi.yml",
+    "paddle-prices-api-openapi.yml",
+    "paddle-products-api-openapi.yml",
+    "paddle-reports-api-openapi.yml",
+    "paddle-subscriptions-api-openapi.yml",
+    "paddle-transactions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
