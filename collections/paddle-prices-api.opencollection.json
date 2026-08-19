@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paddle Addresses Prices API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Prices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/prices",
+            "params": [
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Return entities after the specified cursor for keyset pagination."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of entities per page."
+              }
+            ]
+          },
+          "docs": "List prices"
+        },
+        {
+          "info": {
+            "name": "Create a price",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/prices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a price"
+        },
+        {
+          "info": {
+            "name": "Get a price",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/prices/:price_id",
+            "params": [
+              {
+                "name": "price_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a price"
+        },
+        {
+          "info": {
+            "name": "Update a price",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/prices/:price_id",
+            "params": [
+              {
+                "name": "price_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a price"
+        },
+        {
+          "info": {
+            "name": "Preview prices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/pricing-preview",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Previews calculated totals for a set of prices for a given location, including localized currency and tax, without creating a transaction."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

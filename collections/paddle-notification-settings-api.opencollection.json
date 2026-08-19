@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paddle Addresses Notification Settings API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notification Settings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notification settings (destinations)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notification-settings"
+          },
+          "docs": "List notification settings (destinations)"
+        },
+        {
+          "info": {
+            "name": "Create a notification setting (destination)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/notification-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a notification setting (destination)"
+        },
+        {
+          "info": {
+            "name": "Get a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notification-settings/:notification_setting_id",
+            "params": [
+              {
+                "name": "notification_setting_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a notification setting"
+        },
+        {
+          "info": {
+            "name": "Update a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.paddle.com/notification-settings/:notification_setting_id",
+            "params": [
+              {
+                "name": "notification_setting_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a notification setting"
+        },
+        {
+          "info": {
+            "name": "Delete a notification setting",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.paddle.com/notification-settings/:notification_setting_id",
+            "params": [
+              {
+                "name": "notification_setting_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a notification setting"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

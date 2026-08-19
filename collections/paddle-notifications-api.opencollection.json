@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paddle Addresses Notifications API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List notifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notifications"
+          },
+          "docs": "List notifications"
+        },
+        {
+          "info": {
+            "name": "Get a notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.paddle.com/notifications/:notification_id",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a notification"
+        },
+        {
+          "info": {
+            "name": "Replay a notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.paddle.com/notifications/:notification_id/replay",
+            "params": [
+              {
+                "name": "notification_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Replay a notification"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
