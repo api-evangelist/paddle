@@ -24,6 +24,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paddle.png
 tags:
 - Billing
 - Payments
+- Subscription
+- Merchant of Record
+- Software-as-a-Service
+tags_raw:
+- Billing
+- Payments
 - Subscriptions
 - Merchant of Record
 - SaaS
@@ -289,6 +295,8 @@ apis:
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -373,6 +381,8 @@ apis:
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -457,6 +467,8 @@ apis:
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
@@ -541,6 +553,8 @@ apis:
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
@@ -583,6 +597,8 @@ apis:
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
