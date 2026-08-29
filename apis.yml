@@ -7,6 +7,18 @@ description: Paddle is a merchant-of-record billing platform for SaaS and digita
   prices, customers, subscriptions, transactions, invoices, adjustments, and
   discounts - while Paddle handles global sales tax, payment processing, fraud,
   and compliance on the seller's behalf.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
