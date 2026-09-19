@@ -140,6 +140,8 @@ apis:
   humanURL: https://developer.paddle.com/api-reference/products/overview
   baseURL: https://api.paddle.com
   tags:
+  - Business
+  tags_raw:
   - Businesses
   properties:
   - type: OpenAPI
