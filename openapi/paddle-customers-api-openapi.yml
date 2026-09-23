@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Paddle Addresses Customers API
-  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  title: Paddle Customers API
+  description: Paddle Billing API for subscription and recurring revenue management.
   termsOfService: https://www.paddle.com/legal/terms
   contact:
     name: Paddle Support
@@ -86,22 +86,6 @@ paths:
                 $ref: '#/components/schemas/CustomerEntity'
 components:
   schemas:
-    CustomerEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Customer'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    CustomerCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-        meta:
-          $ref: '#/components/schemas/Meta'
     Customer:
       type: object
       properties:
@@ -109,8 +93,9 @@ components:
           type: string
           example: ctm_01gsz4t5hdjse780zja8vvr7jg
         name:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         email:
           type: string
           format: email
@@ -124,11 +109,28 @@ components:
           - active
           - archived
         custom_data:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
         created_at:
           type: string
           format: date-time
+    CustomerCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    CustomerEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
     CustomerCreate:
       type: object
       required:
@@ -160,16 +162,16 @@ components:
             estimated_total:
               type: integer
   parameters:
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
-      schema:
-        type: string
     customerId:
       name: customer_id
       in: path
       required: true
+      schema:
+        type: string
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
       schema:
         type: string
     perPage:

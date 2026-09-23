@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Paddle Addresses Products API
-  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  title: Paddle Products API
+  description: Paddle Billing API for subscription and recurring revenue management.
   termsOfService: https://www.paddle.com/legal/terms
   contact:
     name: Paddle Support
@@ -92,35 +92,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProductEntity'
 components:
-  parameters:
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
-      schema:
-        type: string
-    productId:
-      name: product_id
-      in: path
-      required: true
-      schema:
-        type: string
-    perPage:
-      name: per_page
-      in: query
-      description: Number of entities per page.
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   schemas:
-    ProductEntity:
+    ProductCreate:
       type: object
+      required:
+      - name
+      - tax_category
       properties:
-        data:
-          $ref: '#/components/schemas/Product'
-        meta:
-          $ref: '#/components/schemas/Meta'
+        name:
+          type: string
+        tax_category:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+        custom_data:
+          type: object
     ProductCollection:
       type: object
       properties:
@@ -146,22 +134,13 @@ components:
               type: boolean
             estimated_total:
               type: integer
-    ProductCreate:
+    ProductEntity:
       type: object
-      required:
-      - name
-      - tax_category
       properties:
-        name:
-          type: string
-        tax_category:
-          type: string
-        description:
-          type: string
-        image_url:
-          type: string
-        custom_data:
-          type: object
+        data:
+          $ref: '#/components/schemas/Product'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Product:
       type: object
       properties:
@@ -171,8 +150,9 @@ components:
         name:
           type: string
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         type:
           type: string
           enum:
@@ -191,11 +171,13 @@ components:
           - training-services
           - website-hosting
         image_url:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         custom_data:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
         status:
           type: string
           enum:
@@ -204,6 +186,27 @@ components:
         created_at:
           type: string
           format: date-time
+  parameters:
+    productId:
+      name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
   securitySchemes:
     bearerAuth:
       type: http

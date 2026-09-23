@@ -1,20 +1,7 @@
 {
   "provider": "paddle",
   "sources": [
-    "paddle-addresses-api-openapi.yml",
-    "paddle-adjustments-api-openapi.yml",
-    "paddle-businesses-api-openapi.yml",
-    "paddle-customers-api-openapi.yml",
-    "paddle-discounts-api-openapi.yml",
-    "paddle-event-types-api-openapi.yml",
-    "paddle-events-api-openapi.yml",
-    "paddle-notification-settings-api-openapi.yml",
-    "paddle-notifications-api-openapi.yml",
-    "paddle-prices-api-openapi.yml",
-    "paddle-products-api-openapi.yml",
-    "paddle-reports-api-openapi.yml",
-    "paddle-subscriptions-api-openapi.yml",
-    "paddle-transactions-api-openapi.yml"
+    "_original/paddle-openapi.yml"
   ],
   "outputs": [
     "paddle-addresses-api-openapi.yml",
@@ -35,6 +22,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "paddle-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "paddle-addresses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-adjustments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-businesses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-customers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-discounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-event-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-events-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-notification-settings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-notifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-prices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paddle-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

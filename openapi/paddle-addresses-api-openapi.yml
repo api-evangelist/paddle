@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Paddle Addresses API
-  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  description: Paddle Billing API for subscription and recurring revenue management.
   termsOfService: https://www.paddle.com/legal/terms
   contact:
     name: Paddle Support
@@ -86,14 +86,14 @@ paths:
                 type: object
 components:
   parameters:
-    customerId:
-      name: customer_id
+    addressId:
+      name: address_id
       in: path
       required: true
       schema:
         type: string
-    addressId:
-      name: address_id
+    customerId:
+      name: customer_id
       in: path
       required: true
       schema:
@@ -110,8 +110,9 @@ components:
         first_line:
           type: string
         second_line:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         city:
           type: string
         postal_code:

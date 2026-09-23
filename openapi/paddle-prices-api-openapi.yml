@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Paddle Addresses Prices API
-  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  title: Paddle Prices API
+  description: Paddle Billing API for subscription and recurring revenue management.
   termsOfService: https://www.paddle.com/legal/terms
   contact:
     name: Paddle Support
@@ -122,6 +122,71 @@ paths:
                 type: object
 components:
   schemas:
+    PriceCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    PriceEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Money:
+      type: object
+      properties:
+        amount:
+          type: string
+          description: Amount in the lowest denomination of the currency (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
+    Price:
+      type: object
+      properties:
+        id:
+          type: string
+          example: pri_01gsz8x8sawmvhz1pv30nge1ke
+        product_id:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum:
+          - standard
+          - custom
+        billing_cycle:
+          type:
+          - object
+          - 'null'
+          properties:
+            interval:
+              type: string
+              enum:
+              - day
+              - week
+              - month
+              - year
+            frequency:
+              type: integer
+        trial_period:
+          type:
+          - object
+          - 'null'
+        unit_price:
+          $ref: '#/components/schemas/Money'
+        status:
+          type: string
+          enum:
+          - active
+          - archived
     Meta:
       type: object
       properties:
@@ -138,13 +203,6 @@ components:
               type: boolean
             estimated_total:
               type: integer
-    PriceEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Price'
-        meta:
-          $ref: '#/components/schemas/Meta'
     PriceCreate:
       type: object
       required:
@@ -162,63 +220,13 @@ components:
           type: object
         trial_period:
           type: object
-    Price:
-      type: object
-      properties:
-        id:
-          type: string
-          example: pri_01gsz8x8sawmvhz1pv30nge1ke
-        product_id:
-          type: string
-        description:
-          type: string
-        type:
-          type: string
-          enum:
-          - standard
-          - custom
-        billing_cycle:
-          type: object
-          nullable: true
-          properties:
-            interval:
-              type: string
-              enum:
-              - day
-              - week
-              - month
-              - year
-            frequency:
-              type: integer
-        trial_period:
-          type: object
-          nullable: true
-        unit_price:
-          $ref: '#/components/schemas/Money'
-        status:
-          type: string
-          enum:
-          - active
-          - archived
-    Money:
-      type: object
-      properties:
-        amount:
-          type: string
-          description: Amount in the lowest denomination of the currency (e.g. cents).
-        currency_code:
-          type: string
-          example: USD
-    PriceCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Price'
-        meta:
-          $ref: '#/components/schemas/Meta'
   parameters:
+    priceId:
+      name: price_id
+      in: path
+      required: true
+      schema:
+        type: string
     after:
       name: after
       in: query
@@ -233,12 +241,6 @@ components:
         type: integer
         default: 50
         maximum: 200
-    priceId:
-      name: price_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

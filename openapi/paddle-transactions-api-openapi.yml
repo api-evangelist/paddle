@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Paddle Addresses Transactions API
-  description: Paddle Billing API for subscription and recurring revenue management. As a merchant of record, Paddle manages products, prices, customers, addresses, businesses, subscriptions, transactions, invoices, adjustments, discounts, reports, and webhook notifications while handling global sales tax, payment processing, fraud, and compliance on the seller's behalf. This is a curated OpenAPI description of the public REST endpoints; Paddle publishes the canonical OpenAPI at https://github.com/PaddleHQ/paddle-openapi.
+  title: Paddle Transactions API
+  description: Paddle Billing API for subscription and recurring revenue management.
   termsOfService: https://www.paddle.com/legal/terms
   contact:
     name: Paddle Support
@@ -119,68 +119,14 @@ paths:
                         type: string
                         format: uri
 components:
-  parameters:
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
-      schema:
-        type: string
-    transactionId:
-      name: transaction_id
-      in: path
-      required: true
-      schema:
-        type: string
-    perPage:
-      name: per_page
-      in: query
-      description: Number of entities per page.
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   schemas:
-    Transaction:
+    TransactionEntity:
       type: object
       properties:
-        id:
-          type: string
-          example: txn_01gsz4t5hdjse780zja8vvr7jg
-        status:
-          type: string
-          enum:
-          - draft
-          - ready
-          - billed
-          - paid
-          - completed
-          - canceled
-          - past_due
-        customer_id:
-          type: string
-          nullable: true
-        subscription_id:
-          type: string
-          nullable: true
-        currency_code:
-          type: string
-        origin:
-          type: string
-        collection_mode:
-          type: string
-          enum:
-          - automatic
-          - manual
-        items:
-          type: array
-          items:
-            type: object
-        details:
-          type: object
-        created_at:
-          type: string
-          format: date-time
+        data:
+          $ref: '#/components/schemas/Transaction'
+        meta:
+          $ref: '#/components/schemas/Meta'
     TransactionCollection:
       type: object
       properties:
@@ -188,13 +134,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Transaction'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    TransactionEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Transaction'
         meta:
           $ref: '#/components/schemas/Meta'
     Meta:
@@ -213,6 +152,69 @@ components:
               type: boolean
             estimated_total:
               type: integer
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          example: txn_01gsz4t5hdjse780zja8vvr7jg
+        status:
+          type: string
+          enum:
+          - draft
+          - ready
+          - billed
+          - paid
+          - completed
+          - canceled
+          - past_due
+        customer_id:
+          type:
+          - string
+          - 'null'
+        subscription_id:
+          type:
+          - string
+          - 'null'
+        currency_code:
+          type: string
+        origin:
+          type: string
+        collection_mode:
+          type: string
+          enum:
+          - automatic
+          - manual
+        items:
+          type: array
+          items:
+            type: object
+        details:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    transactionId:
+      name: transaction_id
+      in: path
+      required: true
+      schema:
+        type: string
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
   securitySchemes:
     bearerAuth:
       type: http
