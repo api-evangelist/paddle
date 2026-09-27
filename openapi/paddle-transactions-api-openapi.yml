@@ -195,6 +195,14 @@ components:
           type: string
           format: date-time
   parameters:
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
     transactionId:
       name: transaction_id
       in: path
@@ -207,14 +215,6 @@ components:
       description: Return entities after the specified cursor for keyset pagination.
       schema:
         type: string
-    perPage:
-      name: per_page
-      in: query
-      description: Number of entities per page.
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   securitySchemes:
     bearerAuth:
       type: http

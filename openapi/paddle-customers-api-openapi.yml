@@ -115,15 +115,6 @@ components:
         created_at:
           type: string
           format: date-time
-    CustomerCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-        meta:
-          $ref: '#/components/schemas/Meta'
     CustomerEntity:
       type: object
       properties:
@@ -131,20 +122,6 @@ components:
           $ref: '#/components/schemas/Customer'
         meta:
           $ref: '#/components/schemas/Meta'
-    CustomerCreate:
-      type: object
-      required:
-      - email
-      properties:
-        email:
-          type: string
-          format: email
-        name:
-          type: string
-        locale:
-          type: string
-        custom_data:
-          type: object
     Meta:
       type: object
       properties:
@@ -161,7 +138,38 @@ components:
               type: boolean
             estimated_total:
               type: integer
+    CustomerCreate:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        locale:
+          type: string
+        custom_data:
+          type: object
+    CustomerCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
   parameters:
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
     customerId:
       name: customer_id
       in: path
@@ -174,14 +182,6 @@ components:
       description: Return entities after the specified cursor for keyset pagination.
       schema:
         type: string
-    perPage:
-      name: per_page
-      in: query
-      description: Number of entities per page.
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   securitySchemes:
     bearerAuth:
       type: http

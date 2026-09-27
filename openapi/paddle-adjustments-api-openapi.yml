@@ -75,6 +75,14 @@ paths:
                         format: uri
 components:
   parameters:
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
     after:
       name: after
       in: query
@@ -87,14 +95,6 @@ components:
       required: true
       schema:
         type: string
-    perPage:
-      name: per_page
-      in: query
-      description: Number of entities per page.
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   schemas:
     AdjustmentCreate:
       type: object

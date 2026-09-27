@@ -109,6 +109,13 @@ components:
           type: string
         custom_data:
           type: object
+    ProductEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Product'
+        meta:
+          $ref: '#/components/schemas/Meta'
     ProductCollection:
       type: object
       properties:
@@ -116,29 +123,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Product'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    Meta:
-      type: object
-      properties:
-        request_id:
-          type: string
-        pagination:
-          type: object
-          properties:
-            per_page:
-              type: integer
-            next:
-              type: string
-            has_more:
-              type: boolean
-            estimated_total:
-              type: integer
-    ProductEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Product'
         meta:
           $ref: '#/components/schemas/Meta'
     Product:
@@ -186,19 +170,23 @@ components:
         created_at:
           type: string
           format: date-time
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
   parameters:
-    productId:
-      name: product_id
-      in: path
-      required: true
-      schema:
-        type: string
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
-      schema:
-        type: string
     perPage:
       name: per_page
       in: query
@@ -207,6 +195,18 @@ components:
         type: integer
         default: 50
         maximum: 200
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
+    productId:
+      name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

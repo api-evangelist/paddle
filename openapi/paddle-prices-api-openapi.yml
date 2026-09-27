@@ -122,31 +122,6 @@ paths:
                 type: object
 components:
   schemas:
-    PriceCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Price'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    PriceEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Price'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    Money:
-      type: object
-      properties:
-        amount:
-          type: string
-          description: Amount in the lowest denomination of the currency (e.g. cents).
-        currency_code:
-          type: string
-          example: USD
     Price:
       type: object
       properties:
@@ -187,22 +162,6 @@ components:
           enum:
           - active
           - archived
-    Meta:
-      type: object
-      properties:
-        request_id:
-          type: string
-        pagination:
-          type: object
-          properties:
-            per_page:
-              type: integer
-            next:
-              type: string
-            has_more:
-              type: boolean
-            estimated_total:
-              type: integer
     PriceCreate:
       type: object
       required:
@@ -220,7 +179,56 @@ components:
           type: object
         trial_period:
           type: object
+    PriceEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+    PriceCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Money:
+      type: object
+      properties:
+        amount:
+          type: string
+          description: Amount in the lowest denomination of the currency (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
   parameters:
+    perPage:
+      name: per_page
+      in: query
+      description: Number of entities per page.
+      schema:
+        type: integer
+        default: 50
+        maximum: 200
     priceId:
       name: price_id
       in: path
@@ -233,14 +241,6 @@ components:
       description: Return entities after the specified cursor for keyset pagination.
       schema:
         type: string
-    perPage:
-      name: per_page
-      in: query
-      description: Number of entities per page.
-      schema:
-        type: integer
-        default: 50
-        maximum: 200
   securitySchemes:
     bearerAuth:
       type: http
