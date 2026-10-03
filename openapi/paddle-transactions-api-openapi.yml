@@ -120,22 +120,6 @@ paths:
                         format: uri
 components:
   schemas:
-    TransactionEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Transaction'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    TransactionCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Transaction'
-        meta:
-          $ref: '#/components/schemas/Meta'
     Meta:
       type: object
       properties:
@@ -152,6 +136,15 @@ components:
               type: boolean
             estimated_total:
               type: integer
+    TransactionCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Transaction:
       type: object
       properties:
@@ -194,7 +187,20 @@ components:
         created_at:
           type: string
           format: date-time
+    TransactionEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Transaction'
+        meta:
+          $ref: '#/components/schemas/Meta'
   parameters:
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
     perPage:
       name: per_page
       in: query
@@ -207,12 +213,6 @@ components:
       name: transaction_id
       in: path
       required: true
-      schema:
-        type: string
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
       schema:
         type: string
   securitySchemes:
