@@ -90,6 +90,13 @@ paths:
         '204':
           description: The notification setting was deleted.
 components:
+  parameters:
+    notificationSettingId:
+      name: notification_setting_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     NotificationSetting:
       type: object
@@ -116,13 +123,6 @@ components:
           type: integer
         include_sensitive_fields:
           type: boolean
-  parameters:
-    notificationSettingId:
-      name: notification_setting_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

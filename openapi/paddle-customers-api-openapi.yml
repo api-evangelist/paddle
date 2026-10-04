@@ -86,52 +86,6 @@ paths:
                 $ref: '#/components/schemas/CustomerEntity'
 components:
   schemas:
-    Meta:
-      type: object
-      properties:
-        request_id:
-          type: string
-        pagination:
-          type: object
-          properties:
-            per_page:
-              type: integer
-            next:
-              type: string
-            has_more:
-              type: boolean
-            estimated_total:
-              type: integer
-    CustomerCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Customer'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    CustomerEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Customer'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    CustomerCreate:
-      type: object
-      required:
-      - email
-      properties:
-        email:
-          type: string
-          format: email
-        name:
-          type: string
-        locale:
-          type: string
-        custom_data:
-          type: object
     Customer:
       type: object
       properties:
@@ -161,6 +115,52 @@ components:
         created_at:
           type: string
           format: date-time
+    CustomerCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+    CustomerCreate:
+      type: object
+      required:
+      - email
+      properties:
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        locale:
+          type: string
+        custom_data:
+          type: object
+    CustomerEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Customer'
+        meta:
+          $ref: '#/components/schemas/Meta'
   parameters:
     after:
       name: after

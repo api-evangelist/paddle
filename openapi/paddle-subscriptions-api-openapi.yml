@@ -195,38 +195,6 @@ paths:
                 $ref: '#/components/schemas/TransactionEntity'
 components:
   schemas:
-    Meta:
-      type: object
-      properties:
-        request_id:
-          type: string
-        pagination:
-          type: object
-          properties:
-            per_page:
-              type: integer
-            next:
-              type: string
-            has_more:
-              type: boolean
-            estimated_total:
-              type: integer
-    SubscriptionCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Subscription'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    SubscriptionEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Subscription'
-        meta:
-          $ref: '#/components/schemas/Meta'
     Subscription:
       type: object
       properties:
@@ -265,6 +233,45 @@ components:
         created_at:
           type: string
           format: date-time
+    SubscriptionCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Subscription'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    TransactionEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Transaction'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    Meta:
+      type: object
+      properties:
+        request_id:
+          type: string
+        pagination:
+          type: object
+          properties:
+            per_page:
+              type: integer
+            next:
+              type: string
+            has_more:
+              type: boolean
+            estimated_total:
+              type: integer
+    SubscriptionEntity:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Subscription'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Transaction:
       type: object
       properties:
@@ -307,13 +314,6 @@ components:
         created_at:
           type: string
           format: date-time
-    TransactionEntity:
-      type: object
-      properties:
-        data:
-          $ref: '#/components/schemas/Transaction'
-        meta:
-          $ref: '#/components/schemas/Meta'
   parameters:
     after:
       name: after

@@ -107,14 +107,14 @@ components:
         region:
           type: string
   parameters:
-    customerId:
-      name: customer_id
+    addressId:
+      name: address_id
       in: path
       required: true
       schema:
         type: string
-    addressId:
-      name: address_id
+    customerId:
+      name: customer_id
       in: path
       required: true
       schema:
