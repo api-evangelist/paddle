@@ -651,6 +651,9 @@ apis:
   - type: APIReference
     url: https://developer.paddle.com/api-reference/notification-settings/overview
 common:
+- type: CapabilityMap
+  url: capabilities/paddle-capability-edges.yml
+  name: Paddle Business Capability Map
 - type: AgenticAccess
   url: agentic-access/paddle-agentic-access.yml
 - type: VulnerabilityDisclosure
