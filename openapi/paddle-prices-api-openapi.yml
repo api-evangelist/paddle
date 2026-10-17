@@ -122,6 +122,15 @@ paths:
                 type: object
 components:
   schemas:
+    PriceCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Price'
+        meta:
+          $ref: '#/components/schemas/Meta'
     Price:
       type: object
       properties:
@@ -162,6 +171,15 @@ components:
           enum:
           - active
           - archived
+    Money:
+      type: object
+      properties:
+        amount:
+          type: string
+          description: Amount in the lowest denomination of the currency (e.g. cents).
+        currency_code:
+          type: string
+          example: USD
     PriceEntity:
       type: object
       properties:
@@ -186,24 +204,6 @@ components:
           type: object
         trial_period:
           type: object
-    PriceCollection:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Price'
-        meta:
-          $ref: '#/components/schemas/Meta'
-    Money:
-      type: object
-      properties:
-        amount:
-          type: string
-          description: Amount in the lowest denomination of the currency (e.g. cents).
-        currency_code:
-          type: string
-          example: USD
     Meta:
       type: object
       properties:
@@ -221,12 +221,6 @@ components:
             estimated_total:
               type: integer
   parameters:
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
-      schema:
-        type: string
     perPage:
       name: per_page
       in: query
@@ -239,6 +233,12 @@ components:
       name: price_id
       in: path
       required: true
+      schema:
+        type: string
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
       schema:
         type: string
   securitySchemes:

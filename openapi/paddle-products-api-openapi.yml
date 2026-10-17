@@ -138,27 +138,20 @@ components:
         created_at:
           type: string
           format: date-time
-    ProductCreate:
-      type: object
-      required:
-      - name
-      - tax_category
-      properties:
-        name:
-          type: string
-        tax_category:
-          type: string
-        description:
-          type: string
-        image_url:
-          type: string
-        custom_data:
-          type: object
     ProductEntity:
       type: object
       properties:
         data:
           $ref: '#/components/schemas/Product'
+        meta:
+          $ref: '#/components/schemas/Meta'
+    ProductCollection:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Product'
         meta:
           $ref: '#/components/schemas/Meta'
     Meta:
@@ -177,22 +170,23 @@ components:
               type: boolean
             estimated_total:
               type: integer
-    ProductCollection:
+    ProductCreate:
       type: object
+      required:
+      - name
+      - tax_category
       properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Product'
-        meta:
-          $ref: '#/components/schemas/Meta'
+        name:
+          type: string
+        tax_category:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+        custom_data:
+          type: object
   parameters:
-    after:
-      name: after
-      in: query
-      description: Return entities after the specified cursor for keyset pagination.
-      schema:
-        type: string
     perPage:
       name: per_page
       in: query
@@ -201,6 +195,12 @@ components:
         type: integer
         default: 50
         maximum: 200
+    after:
+      name: after
+      in: query
+      description: Return entities after the specified cursor for keyset pagination.
+      schema:
+        type: string
     productId:
       name: product_id
       in: path

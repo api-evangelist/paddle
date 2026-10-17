@@ -85,6 +85,19 @@ paths:
               schema:
                 type: object
 components:
+  parameters:
+    addressId:
+      name: address_id
+      in: path
+      required: true
+      schema:
+        type: string
+    customerId:
+      name: customer_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     Address:
       type: object
@@ -106,19 +119,6 @@ components:
           type: string
         region:
           type: string
-  parameters:
-    addressId:
-      name: address_id
-      in: path
-      required: true
-      schema:
-        type: string
-    customerId:
-      name: customer_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
