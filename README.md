@@ -1,4 +1,4 @@
-# Paddle (paddle)
+# Paddle
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,202 +66,151 @@
 
 Paddle is a merchant-of-record billing platform for SaaS and digital products. The Paddle Billing API manages the full revenue lifecycle - products, prices, customers, subscriptions, transactions, invoices, adjustments, and discounts - while Paddle handles global sales tax, payment processing, fraud, and compliance on the seller's behalf.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/paddle/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/paddle/refs/heads/main/apis.yml)
+**Areas:** Billing · Payments · Subscription · Merchant of Record · Software-as-a-Service
 
-## Tags
+## Paddle on APIs.io
 
-- Billing
-- Payments
-- Subscriptions
-- Merchant of Record
-- SaaS
+Everything profiled for Paddle is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/paddle/](https://apis.io/providers/paddle/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (14)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Paddle Addresses API](https://apis.io/apis/paddle/paddle-addresses-api/) — The Addresses API from Paddle — 2 operation(s) for addresses.
+- [Paddle Adjustments API](https://apis.io/apis/paddle/paddle-adjustments-api/) — The Adjustments API from Paddle — 2 operation(s) for adjustments.
+- [Paddle Businesses API](https://apis.io/apis/paddle/paddle-businesses-api/) — The Businesses API from Paddle — 2 operation(s) for businesses.
+- [Paddle Customers API](https://apis.io/apis/paddle/paddle-customers-api/) — The Customers API from Paddle — 2 operation(s) for customers.
+- [Paddle Discounts API](https://apis.io/apis/paddle/paddle-discounts-api/) — The Discounts API from Paddle — 1 operation(s) for discounts.
+- [Paddle Event Types API](https://apis.io/apis/paddle/paddle-event-types-api/) — The Event Types API from Paddle — 1 operation(s) for event types.
+- [Paddle Events API](https://apis.io/apis/paddle/paddle-events-api/) — The Events API from Paddle — 1 operation(s) for events.
+- [Paddle Notification Settings API](https://apis.io/apis/paddle/paddle-notification-settings-api/) — The Notification Settings API from Paddle — 2 operation(s) for notification settings.
+- [Paddle Notifications API](https://apis.io/apis/paddle/paddle-notifications-api/) — The Notifications API from Paddle — 3 operation(s) for notifications.
+- [Paddle Prices API](https://apis.io/apis/paddle/paddle-prices-api/) — The Prices API from Paddle — 3 operation(s) for prices.
+- [Paddle Products API](https://apis.io/apis/paddle/paddle-products-api/) — The Products API from Paddle — 2 operation(s) for products.
+- [Paddle Reports API](https://apis.io/apis/paddle/paddle-reports-api/) — The Reports API from Paddle — 3 operation(s) for reports.
+- [Paddle Subscriptions API](https://apis.io/apis/paddle/paddle-subscriptions-api/) — The Subscriptions API from Paddle — 8 operation(s) for subscriptions.
+- [Paddle Transactions API](https://apis.io/apis/paddle/paddle-transactions-api/) — The Transactions API from Paddle — 3 operation(s) for transactions.
 
-## APIs
+### Published properties
 
-### Paddle Products API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Create, read, and update the products in your Paddle catalog, including names, descriptions, tax categories, custom data, and product images.
+#### MCP servers (1)
 
-- **Human URL:** [https://developer.paddle.com/api-reference/products/overview](https://developer.paddle.com/api-reference/products/overview)
-- **Base URL:** `https://api.paddle.com`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [paddle](https://apis.io/servers/paddle/paddle/)
 
-- Products
-- Catalog
-- Prices
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://developer.paddle.com/api-reference/products/overview)
-- [API Reference](https://developer.paddle.com/api-reference/products/list-products)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Paddle Agentic Access](https://apis.io/agentic-access/paddle/paddle-agentic-access/)
 
-### Paddle Prices API
+#### Collections (15)
 
-Manage one-time and recurring prices for products, including billing cycles, trial periods, unit and tiered pricing, country overrides, and a pricing-preview endpoint that calculates localized prices and taxes.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://developer.paddle.com/api-reference/prices/overview](https://developer.paddle.com/api-reference/prices/overview)
-- **Base URL:** `https://api.paddle.com`
+- [Paddle API](https://apis.io/collections/paddle/open-paddle/)
+- [Paddle Addresses API](https://apis.io/collections/paddle/open-paddle-addresses-api/)
+- [Paddle Addresses Adjustments API](https://apis.io/collections/paddle/open-paddle-adjustments-api/)
+- [Paddle Addresses Businesses API](https://apis.io/collections/paddle/open-paddle-businesses-api/)
+- [Paddle Addresses Customers API](https://apis.io/collections/paddle/open-paddle-customers-api/)
+- [Paddle Addresses Discounts API](https://apis.io/collections/paddle/open-paddle-discounts-api/)
+- [Paddle Addresses Event Types API](https://apis.io/collections/paddle/open-paddle-event-types-api/)
+- [Paddle Addresses Events API](https://apis.io/collections/paddle/open-paddle-events-api/)
+- [Paddle Addresses Notification Settings API](https://apis.io/collections/paddle/open-paddle-notification-settings-api/)
+- [Paddle Addresses Notifications API](https://apis.io/collections/paddle/open-paddle-notifications-api/)
+- [Paddle Addresses Prices API](https://apis.io/collections/paddle/open-paddle-prices-api/)
+- [Paddle Addresses Products API](https://apis.io/collections/paddle/open-paddle-products-api/)
+- [Paddle Addresses Reports API](https://apis.io/collections/paddle/open-paddle-reports-api/)
+- [Paddle Addresses Subscriptions API](https://apis.io/collections/paddle/open-paddle-subscriptions-api/)
+- [Paddle Addresses Transactions API](https://apis.io/collections/paddle/open-paddle-transactions-api/)
 
-#### Tags
+#### Security (3)
 
-- Prices
-- Pricing
-- Catalog
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Paddle Authentication](https://apis.io/security/paddle/paddle-authentication/)
+- [Paddle Domain Security](https://apis.io/security/paddle/paddle-domain-security/)
+- [Paddle Vulnerability Disclosure](https://apis.io/security/paddle/paddle-vulnerability-disclosure/)
 
-- [Documentation](https://developer.paddle.com/api-reference/prices/overview)
-- [API Reference](https://developer.paddle.com/api-reference/prices/list-prices)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Paddle Customers API
+Published plans, tiers and prices.
 
-Manage customers and their related addresses and businesses, credit balances, customer portal sessions, and authentication tokens used by Paddle.js and the customer portal.
+- [Paddle Plans Pricing](https://apis.io/plans/paddle/paddle-plans-pricing/)
 
-- **Human URL:** [https://developer.paddle.com/api-reference/customers/overview](https://developer.paddle.com/api-reference/customers/overview)
-- **Base URL:** `https://api.paddle.com`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Customers
-- Addresses
-- Businesses
+- [Paddle Rate Limits](https://apis.io/rate-limits/paddle/paddle-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://developer.paddle.com/api-reference/customers/overview)
-- [API Reference](https://developer.paddle.com/api-reference/customers/list-customers)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Paddle Subscriptions API
+- [Paddle Finops](https://apis.io/finops/paddle/paddle-finops/)
 
-Manage the full subscription lifecycle - list, get, and update subscriptions, activate trials, pause, resume, cancel, apply one-time charges, preview updates and charges, and retrieve payment-method-update transactions.
+## Where to find this API
 
-- **Human URL:** [https://developer.paddle.com/api-reference/subscriptions/overview](https://developer.paddle.com/api-reference/subscriptions/overview)
-- **Base URL:** `https://api.paddle.com`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Subscriptions
-- Recurring Billing
-- Lifecycle
-
-#### Properties
-
-- [Documentation](https://developer.paddle.com/api-reference/subscriptions/overview)
-- [API Reference](https://developer.paddle.com/api-reference/subscriptions/list-subscriptions)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paddle Transactions API
-
-Create, read, update, and preview transactions - the core billing object that ties customers, prices, and payments together - and retrieve a PDF invoice or revise customer details for billed transactions.
-
-- **Human URL:** [https://developer.paddle.com/api-reference/transactions/overview](https://developer.paddle.com/api-reference/transactions/overview)
-- **Base URL:** `https://api.paddle.com`
-
-#### Tags
-
-- Transactions
-- Checkout
-- Invoices
-
-#### Properties
-
-- [Documentation](https://developer.paddle.com/api-reference/transactions/overview)
-- [API Reference](https://developer.paddle.com/api-reference/transactions/list-transactions)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paddle Adjustments API
-
-Issue and list adjustments - refunds, credits, and chargebacks against transactions - and download a PDF credit note for an adjustment.
-
-- **Human URL:** [https://developer.paddle.com/api-reference/adjustments/overview](https://developer.paddle.com/api-reference/adjustments/overview)
-- **Base URL:** `https://api.paddle.com`
-
-#### Tags
-
-- Adjustments
-- Refunds
-- Credit Notes
-
-#### Properties
-
-- [Documentation](https://developer.paddle.com/api-reference/adjustments/overview)
-- [API Reference](https://developer.paddle.com/api-reference/adjustments/list-adjustments)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paddle Discounts API
-
-Create, read, and update discounts - percentage, flat, and flat-per-seat coupon codes with usage limits, expiry, and product or price restrictions - applied to checkouts, transactions, and subscriptions.
-
-- **Human URL:** [https://developer.paddle.com/api-reference/discounts/overview](https://developer.paddle.com/api-reference/discounts/overview)
-- **Base URL:** `https://api.paddle.com`
-
-#### Tags
-
-- Discounts
-- Coupons
-- Promotions
-
-#### Properties
-
-- [Documentation](https://developer.paddle.com/api-reference/discounts/overview)
-- [API Reference](https://developer.paddle.com/api-reference/discounts/list-discounts)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Paddle Notifications API
-
-Configure notification destinations (webhook and email), list and inspect delivered notifications, replay failed deliveries, and browse the events and event-type catalog that power Paddle's webhook system.
-
-- **Human URL:** [https://developer.paddle.com/api-reference/notifications/overview](https://developer.paddle.com/api-reference/notifications/overview)
-- **Base URL:** `https://api.paddle.com`
-
-#### Tags
-
-- Notifications
-- Webhooks
-- Events
-
-#### Properties
-
-- [Documentation](https://developer.paddle.com/api-reference/notifications/overview)
-- [API Reference](https://developer.paddle.com/api-reference/notification-settings/overview)
-- [OpenAPI](openapi/paddle-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paddle.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paddle.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/PaddleHQ)
-- [LinkedIn](https://www.linkedin.com/company/paddle)
 - [Website](https://www.paddle.com)
 - [Documentation](https://developer.paddle.com)
-- [Plans](plans/paddle-plans-pricing.yml)
-- [Rate Limits](rate-limits/paddle-rate-limits.yml)
-- [Fin Ops](finops/paddle-finops.yml)
+- [Blog](https://www.paddle.com/blog)
+- [GitHub](https://github.com/PaddleHQ)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.1** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 45.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 5.3 |
+
+**Agent readiness 47.5** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.1** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/paddle/](https://apis.io/providers/paddle/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Paddle: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/paddle/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
